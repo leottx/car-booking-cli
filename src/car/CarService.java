@@ -16,4 +16,28 @@ public class CarService {
     public Car[] getAllCars() {
         return carDAO.getAllCars();
     }
+
+    public Car[] getElectricCars() {
+        Car[] cars = getAllCars();
+        int electricCarsCount = 0;
+
+        for(Car car : cars) {
+            if(!car.isElectric()) {
+                continue;
+            }
+            electricCarsCount++;
+        }
+
+        Car[] electricCars = new Car[electricCarsCount];
+
+        int index = 0;
+        for(Car car : cars) {
+            if (!car.isElectric()) {
+                continue;
+            }
+            electricCars[index] = car;
+        }
+
+        return electricCars;
+    }
 }

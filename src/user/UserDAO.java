@@ -6,7 +6,7 @@ public class UserDAO {
     private static final User[] users;
 
     static {
-        users = new User[] {new User(UUID.fromString("12345"), "Leonardo"), new User(UUID.fromString("54321"), "Ana"), new User(UUID.fromString("874965"), "Camila")};
+        users = new User[] {new User(UUID.fromString("8ca51d2b-aaaf-4bf2-834a-e02964e10fc3"), "Leonardo"), new User(UUID.fromString("8ca51d2b-aaaf-4bf2-834a-e02964e10ab3"), "Ana")};
     }
 
     public User[] getAllUsers() {
