@@ -4,6 +4,7 @@ import car.Car;
 import user.User;
 import user.UserService;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -51,7 +52,12 @@ public class Main {
         System.out.println("Select car reg number: ");
         String carReg = scanner.nextLine();
 
-        printAllUsers(userService);
+        try {
+            printAllUsers(userService);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         System.out.println("Select user id: ");
         String userId = scanner.nextLine();
 
@@ -70,7 +76,7 @@ public class Main {
         }
     }
 
-    private static void printAllUserBookedCars(UserService userService, BookingService bookingService, Scanner scanner) {
+    private static void printAllUserBookedCars(UserService userService, BookingService bookingService, Scanner scanner) throws FileNotFoundException{
         printAllUsers(userService);
         System.out.println("Select user id: ");
         UUID userId = UUID.fromString(scanner.nextLine());

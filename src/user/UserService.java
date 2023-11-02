@@ -1,11 +1,12 @@
 package user;
 
+import java.io.FileNotFoundException;
 import java.util.UUID;
 
 public class UserService {
-    private static final UserDAO userDAO = new UserDAO();
+    private static final UserArrayDataAccessService userArrayData = new UserArrayDataAccessService();
 
-    public User getUserById(UUID id) {
+    public User getUserById(UUID id) throws FileNotFoundException {
         for (User user:
              getAllUsers()) {
             if (user.getId().equals(id)) {
@@ -16,6 +17,6 @@ public class UserService {
     }
 
     public User[] getAllUsers() {
-        return userDAO.getAllUsers();
+        return userArrayData.getAllUsers();
     }
 }
